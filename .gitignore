@@ -277,3 +277,4 @@ botnav/media/
 .env
 .envs/*
 !.envs/.local/
+.tokens
