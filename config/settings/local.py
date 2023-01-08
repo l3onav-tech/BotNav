@@ -1,6 +1,5 @@
 from .base import *  # noqa
 from .base import env
-import logging
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
