@@ -75,6 +75,12 @@ DEFAULT_FROM_EMAIL = env(
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
+EMAIL_TIMEOUT = 5
+EMAIL_HOST = env("EMAIL_HOST", default="mailhog")
+EMAIL_PORT = env("EMAIL_PORT", default="25")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="example@domain.ext")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
 EMAIL_SUBJECT_PREFIX = env(
     "DJANGO_EMAIL_SUBJECT_PREFIX",

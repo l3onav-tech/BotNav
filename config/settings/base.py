@@ -2,7 +2,6 @@
 Base settings to build other settings files upon.
 """
 from pathlib import Path
-
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -77,8 +76,11 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "botnav.users",
     # Your stuff: custom apps go here
+    "botnav.users",
+    "botnav.github",
+    #"botnav.jenkins",
+    #"botnav.kubernetes",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -220,6 +222,10 @@ EMAIL_BACKEND = env(
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
+EMAIL_HOST = env("EMAIL_HOST", default="mailhog")
+EMAIL_PORT = env("EMAIL_PORT", default="25")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="example@domain.ext")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 # ADMIN
 # ------------------------------------------------------------------------------
@@ -314,8 +320,13 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ]
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
@@ -331,3 +342,4 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+
