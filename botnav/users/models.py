@@ -12,17 +12,18 @@ class User(AbstractUser):
     """
 
     #: First and last name do not cover name patterns around the globe
-    name = CharField(_("Name of User"), blank=True, max_length=255)
+    name = CharField(_("Name of User."), blank=True, max_length=255)
     email = models.EmailField(
             "Email address",
             unique=True,
             error_messages={
                 "unique":"Email already taken."
             }
-
     )
     first_name = None  # type: ignore
     last_name = None  # type: ignore
+
+    organization = models.CharField(_("Name of the organization."), blank=False, max_length=255)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

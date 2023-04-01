@@ -62,12 +62,15 @@ DJANGO_APPS = [
     "django.contrib.admin",
     "django.forms",
 ]
+#TODO github signup/signin | gitlab signup/signin
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.gitlab",
     "django_celery_beat",
     "rest_framework",
     "rest_framework.authtoken",
@@ -78,7 +81,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # Your stuff: custom apps go here
     "botnav.users",
-    "botnav.github",
+    "botnav.github_app",
     #"botnav.jenkins",
     #"botnav.kubernetes",
 ]
@@ -342,4 +345,6 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+GITHUB_TOKEN_API = env("GITHUB_API_TOKEN")
 
+GITHUB_ORG_DEFAULT = env("GITHUB_ORG")

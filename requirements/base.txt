@@ -10,6 +10,7 @@ django-celery-beat==2.4.0  # https://github.com/celery/django-celery-beat
 flower==1.2.0  # https://github.com/mher/flower
 uvicorn[standard]==0.20.0  # https://github.com/encode/uvicorn
 sentry-sdk==1.12.1  # https://github.com/getsentry/sentry-python
+requests==2.28.1 #https://requests.readthedocs.io/en/latest/
 # Django
 # ------------------------------------------------------------------------------
 django==4.0.8  # pyup: < 4.1  # https://www.djangoproject.com/

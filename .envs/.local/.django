@@ -7,8 +7,7 @@ IPYTHONDIR=/app/.ipython
 REDIS_URL=redis://redis:6379/0
 
 # Celery
-# ------------------------------------------------------------------------------
-
+#
 # Flower
 CELERY_FLOWER_USER=debug
 CELERY_FLOWER_PASSWORD=debug
@@ -20,4 +19,6 @@ EMAIL_PORT=587
 EMAIL_HOST_USER=postmaster@l3onav.com
 EMAIL_HOST_PASSWORD=8f546bfc5cb41319ad9bb868c0787436-cc9b2d04-e97495a7
 
-#SENTRY
+#GITHUB
+GITHUB_API_TOKEN=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
+GITHUB_ORG=l3onav-tech
